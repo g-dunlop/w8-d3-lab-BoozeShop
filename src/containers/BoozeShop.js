@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import BoozeList from '../components/BoozeList';
 import Basket from '../components/Basket';
 import UserContext from '../context/UserContext';
+import styled from 'styled-components';
 
 const BoozeShop = () => {
 
@@ -34,6 +35,15 @@ const BoozeShop = () => {
         setIsModalOpen(!isModalOpen);
     }
 
+    const Title = styled.h2`
+    text-align:center;
+    background-color: #5584AC;
+    color:white;
+    padding:1em;
+    margin:0;
+    font-size:2em;
+    `
+
     return (
         <>
 
@@ -49,7 +59,7 @@ const BoozeShop = () => {
 
 
                 </Modal>
-            <h2 id="container-title"> Welcome to the Booze Shop! </h2>
+            <Title id="container-title"> Welcome to the Booze Shop {user.name}! </Title>
             
             <UserContext.Provider value={{user}}>
                 <BoozeList drinks={drinks} addToBasket={addToBasket} />

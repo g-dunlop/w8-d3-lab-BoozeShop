@@ -1,5 +1,6 @@
 import React from "react";
 import Drink from './Drink';
+import styled from 'styled-components';
 
 const BoozeList = ({drinks, addToBasket}) => {
 
@@ -7,13 +8,27 @@ const BoozeList = ({drinks, addToBasket}) => {
         return <Drink drink={drink} key={index} index={index} addToBasket={addToBasket} />
     })
 
+    const Title = styled.h2`
+    text-align:center;
+    background-color:#22577E;
+    margin:0;
+    padding:1em;
+    color:white;
+    `
+
+    const List = styled.ul`
+    background-color:#95D1CC;
+    margin:0;
+    padding:1em;
+    list-style:none;
+    `
 
     return(
         <>
-            <h2>I'm the boozelist</h2>
-            <ul>
+            <Title>I'm the boozelist</Title>
+            <List>
                 {drinkNodes}
-            </ul>
+            </List>
         </>
     )
 }
