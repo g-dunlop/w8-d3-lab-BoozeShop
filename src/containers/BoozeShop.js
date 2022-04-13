@@ -4,10 +4,17 @@ import BoozeList from '../components/BoozeList';
 import Basket from '../components/Basket';
 import UserContext from '../context/UserContext';
 import styled from 'styled-components';
+import drink_0 from "../static/images/drink_0.jpg";
+import drink_1 from "../static/images/drink_1.jpg";
+import drink_2 from "../static/images/drink_2.jpg";
+import drink_3 from "../static/images/drink_3.jpg";
+import drink_4 from "../static/images/drink_4.jpg";
+import drink_5 from "../static/images/drink_5.jpg";
 
 const BoozeShop = () => {
 
-    const drinks = ["whisky", "lager", "wine", "brandy", "vodka", "midouri"]
+    const drinks = [{name:"whisky", price: 6, img: drink_0}
+    , {name:"lager", price: 3, img: drink_1}, {name:"wine", price: 6, img: drink_2}, {name:"brandy", price: 12, img: drink_3}, {name:"vodka", price: 10, img: drink_4}, {name:"midouri", price: 8, img: drink_5}]
     
     const [user, setUser] = useState({
         name: "name",

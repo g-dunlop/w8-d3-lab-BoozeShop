@@ -7,7 +7,7 @@ const Basket = ({userBasket}) => {
     const{user} = useContext(UserContext)
     
     const basketItems = userBasket.map((drink, index) => {
-        return <li drink={drink} key={index}>{drink}</li>
+        return <li drink={drink} key={index}>{drink.name} {drink.price} GBP</li>
     })
 
     const Title = styled.h3`
