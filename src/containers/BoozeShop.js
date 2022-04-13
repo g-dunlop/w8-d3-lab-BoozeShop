@@ -2,11 +2,11 @@ import {useState} from 'react';
 import Modal from 'react-modal';
 import BoozeList from '../components/BoozeList';
 import Basket from '../components/Basket';
-
+import UserContext from '../context/UserContext';
 
 const BoozeShop = () => {
 
-    const drinks = ["whiskey", "lager", "wine", "brandy", "vodka", "midouri"]
+    const drinks = ["whisky", "lager", "wine", "brandy", "vodka", "midouri"]
     
     const [user, setUser] = useState({
         name: "name",
@@ -51,9 +51,10 @@ const BoozeShop = () => {
                 </Modal>
             <h2 id="container-title"> Welcome to the Booze Shop! </h2>
             
-            <BoozeList drinks={drinks} addToBasket={addToBasket} />
-            {user.basket.length > 0 ? <Basket userBasket={user.basket}/> : null}
-            
+            <UserContext.Provider value={{user}}>
+                <BoozeList drinks={drinks} addToBasket={addToBasket} />
+                {user.basket.length > 0 ? <Basket userBasket={user.basket}/> : null}
+            </UserContext.Provider>
         </>
     
     )
