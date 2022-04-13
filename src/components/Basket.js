@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import UserContext from "../context/UserContext";
 import styled from 'styled-components';
 
-const Basket = ({userBasket}) => {
+const Basket = ({userBasket, totalBasketValue}) => {
 
     const{user} = useContext(UserContext)
     
@@ -33,6 +33,7 @@ const Basket = ({userBasket}) => {
     return (
         <>
         <Title>{user.name}'s Basket</Title>
+        <h2>Total: £{totalBasketValue}</h2>
         <List id="basket-item">{basketItems}</List>
         </>
     )

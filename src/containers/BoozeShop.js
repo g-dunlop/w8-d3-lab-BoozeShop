@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Modal from 'react-modal';
 import BoozeList from '../components/BoozeList';
 import Basket from '../components/Basket';
@@ -21,6 +21,19 @@ const BoozeShop = () => {
         basket: []
     })
     const [isModalOpen, setIsModalOpen] = useState(true);
+    const [totalBasketValue, setTotalBasketValue] = useState(0);
+
+    useEffect(() => {
+        calculateBasketValue();
+    }, [user])
+
+    const calculateBasketValue = () => {
+        let total = 0;
+        user.basket.forEach(drink => {
+            total += drink.price;
+        })
+        setTotalBasketValue(total)
+    }
 
     const addToBasket = (drinkIndex)=> {
         const drinkToAdd = drinks[drinkIndex]
@@ -70,7 +83,7 @@ const BoozeShop = () => {
             
             <UserContext.Provider value={{user}}>
                 <BoozeList drinks={drinks} addToBasket={addToBasket} />
-                {user.basket.length > 0 ? <Basket userBasket={user.basket}/> : null}
+                {user.basket.length > 0 ? <Basket totalBasketValue={totalBasketValue} userBasket={user.basket}/> : null}
             </UserContext.Provider>
         </>
     
