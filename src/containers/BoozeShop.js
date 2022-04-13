@@ -53,13 +53,13 @@ const BoozeShop = () => {
                 contentLabel="user name"
                 >
                     <label htmlFor="name">Your Name:</label>
-                    <input type="text" name="name" placeholder={user.name} onChange={handleChange} />
-                    <button onClick={toggleModal}>Enter</button>
+                    <input id="name-input" type="text" name="name" placeholder={user.name} onChange={handleChange} />
+                    <button id="name-enter" onClick={toggleModal}>Enter</button>
 
 
 
                 </Modal>
-            <Title id="container-title"> Welcome to the Booze Shop {user.name}! </Title>
+            <Title id="container-title">Welcome to the Booze Shop {user.name}!</Title>
             
             <UserContext.Provider value={{user}}>
                 <BoozeList drinks={drinks} addToBasket={addToBasket} />

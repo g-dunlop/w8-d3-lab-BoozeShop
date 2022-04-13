@@ -30,8 +30,8 @@ const Drink = ({drink, index, addToBasket}) => {
 
     return(
         <ListItem>
-            <BoozeName>{drink}</BoozeName>
-            <Button value={index} onClick={handleClick}>Add to Basket</Button>
+            <BoozeName id="drink">{drink}</BoozeName>
+            <Button id="basket-button" value={index} onClick={handleClick}>Add to Basket</Button>
         </ListItem>
     )
 }
