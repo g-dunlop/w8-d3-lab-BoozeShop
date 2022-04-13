@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import BoozeList from '../components/BoozeList';
+import Basket from '../components/Basket';
 
 const BoozeShop = () => {
 
@@ -22,7 +23,10 @@ const BoozeShop = () => {
     return (
         <>
             <h2 id="container-title"> Welcome to the Booze Shop! </h2>
+            
             <BoozeList drinks={drinks} addToBasket={addToBasket} />
+            {user.basket.length > 0 ? <Basket userBasket={user.basket}/> : null}
+            
         </>
     
     )
